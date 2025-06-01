@@ -1,4 +1,3 @@
-/* ========== Tema (Claro e Escuro) ========== */
 :root {
   --bg: #f9fafb;
   --text: #2c3e50;
@@ -33,7 +32,6 @@ body:not(.dark) {
   --highlight: var(--highlight-light);
 }
 
-/* ========== Estilo Base ========== */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg);
@@ -45,7 +43,6 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* ========== Animações ========== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -78,7 +75,6 @@ body {
   }
 }
 
-/* ========== Partículas de Fundo ========== */
 #particles-js {
   position: fixed;
   inset: 0;
@@ -89,7 +85,6 @@ body {
   transition: background-color 0.5s ease;
 }
 
-/* ========== Cabeçalho do Perfil Moderno ========== */
 .perfil-header {
   display: flex;
   align-items: center;
@@ -170,7 +165,6 @@ body {
   }
 }
 
-/* ========== Foto do Perfil com efeito moderno ========== */
 .perfil-foto-container {
   position: relative;
   width: 160px;
@@ -224,7 +218,6 @@ body {
   opacity: 1;
 }
 
-/* ========== Informações do Perfil ========== */
 .perfil-info {
   max-width: 520px;
   text-align: left;
@@ -249,7 +242,6 @@ body {
   opacity: 0.85;
 }
 
-/* Efeito de digitação */
 #digitando {
   font-size: 20px;
   letter-spacing: 1px;
@@ -277,7 +269,6 @@ body {
   }
 }
 
-/* ========== Botão Modo Escuro ========== */
 .toggle-container {
   position: fixed;
   bottom: 20px;
@@ -309,7 +300,6 @@ body.dark #toggle-theme {
   filter: brightness(1);
 }
 
-/* Responsivo - Toggle */
 @media (max-width: 600px) {
   .toggle-container {
     bottom: 12px;
@@ -339,7 +329,6 @@ a:hover {
   color: var(--link-hover);
 }
 
-/* ========== Seções ========== */
 section {
   max-width: 960px;
   margin: 40px auto;
@@ -380,7 +369,6 @@ section.delay-3 {
   }
 }
 
-/* Brilho de fundo girando */
 section::before {
   content: "";
   position: absolute;
@@ -403,7 +391,6 @@ section > * {
   z-index: 1;
 }
 
-/* Título */
 section h2 {
   text-align: center;
   font-size: 1.8rem;
@@ -416,7 +403,6 @@ section:hover h2 {
   transform: scale(1.05);
 }
 
-/* Texto biográfico */
 .bio p,
 .card p,
 .avaliacao p {
@@ -435,7 +421,6 @@ body.dark .avaliacao p {
   color: #a0aec0;
 }
 
-/* ========== Conhecimentos e Links compartilhados ========== */
 .conhecimentos ul,
 .links ul {
   list-style: none;
@@ -456,7 +441,6 @@ body.dark .avaliacao p {
   cursor: pointer;
 }
 
-/* Imagens */
 .conhecimentos li img,
 .links li img {
   width: 48px;
@@ -471,7 +455,6 @@ body.dark .avaliacao p {
   padding: 10px;
 }
 
-/* Tooltip */
 .tooltip {
   visibility: hidden;
   opacity: 0;
@@ -523,7 +506,6 @@ body.dark .avaliacao p {
   cursor: pointer;
 }
 
-/* Tooltip dentro de .links li */
 .links li .tooltip {
   visibility: hidden;
   opacity: 0;
@@ -558,7 +540,6 @@ body.dark .avaliacao p {
   transform: scale(1.05);
 }
 
-/* Tema escuro para tooltips e links */
 body.dark .links li {
   background-color: #1e293b;
   color: #f1f1f1;
@@ -573,7 +554,6 @@ body.dark .links li .tooltip {
   color: #f1f1f1;
 }
 
-/* Tema escuro para tooltips e links */
 body.dark .conhecimentos li .tooltip,
 body.dark .links li {
   background-color: #1e293b;
@@ -584,7 +564,6 @@ body.dark .links li:hover {
   background-color: #334155;
 }
 
-/* ========== Projetos em destaque ========== */
 .projetos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -598,13 +577,11 @@ body.dark .links li:hover {
   text-align: center;
 }
 
-/* Corrige zoom duplicado */
 section.projeto:hover {
   transform: scale(1.08);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* ========== Avaliação ========== */
 .avaliacao #js-skill {
   background-color: #e5e7eb;
   height: 20px;
@@ -618,7 +595,6 @@ body.dark .avaliacao #js-skill {
   background-color: #374151;
 }
 
-/* ========== Footer ========== */
 footer {
   text-align: center;
   padding: 30px 10px 10px;
@@ -631,7 +607,6 @@ body.dark footer {
   color: #9ca3af;
 }
 
-/* ========== Menu de navegação ========== */
 .nav-links {
   list-style: none;
   display: flex;
@@ -679,7 +654,6 @@ body.dark .nav-links {
   width: 100%;
 }
 
-/* ========== Botão Voltar ao Topo ========== */
 #voltarTopo {
   position: fixed;
   bottom: 30px;

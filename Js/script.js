@@ -4,7 +4,6 @@ document.getElementById("toggle-theme").addEventListener("click", function () {
   const isDark = document.body.classList.contains("dark");
   localStorage.setItem("theme", isDark ? "dark" : "light");
 
-  // Atualiza o ícone do botão
   const icon = document.getElementById("theme-icon");
   icon.src = isDark
     ? "/Assets/icons/light_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
@@ -13,7 +12,6 @@ document.getElementById("toggle-theme").addEventListener("click", function () {
   icon.alt = isDark ? "Modo Claro" : "Modo Escuro";
 });
 
-// Aplica o tema salvo no carregamento
 window.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme");
   const icon = document.getElementById("theme-icon");
@@ -36,11 +34,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
 particlesJS("particles-js", {
   particles: {
-    number: { value: 90, density: { enable: true, value_area: 800 } }, // mais partículas e área maior
-    color: { value: "#3182ce" }, // azul um pouco mais escuro para destacar no fundo claro
+    number: { value: 90, density: { enable: true, value_area: 800 } },
     shape: { type: "circle" },
-    opacity: { value: 0.5, random: true }, // opacidade maior para melhor visibilidade
-    size: { value: 4, random: true }, // partículas maiores
+    opacity: { value: 0.5, random: true },
+    size: { value: 4, random: true },
     move: { enable: true, speed: 2.5, direction: "none", out_mode: "bounce" },
   },
   interactivity: {
@@ -58,7 +55,6 @@ particlesJS("particles-js", {
 
 const botaoTopo = document.getElementById("voltarTopo");
 
-// Mostrar botão quando rolar 300px pra baixo
 window.onscroll = function () {
   if (document.documentElement.scrollTop > 300) {
     botaoTopo.style.display = "block";
@@ -67,7 +63,6 @@ window.onscroll = function () {
   }
 };
 
-// Voltar suavemente ao topo ao clicar
 botaoTopo.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
