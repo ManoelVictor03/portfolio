@@ -1,0 +1,703 @@
+/* ========== Tema (Claro e Escuro) ========== */
+:root {
+  --bg: #f9fafb;
+  --text: #2c3e50;
+  --header-bg-light: rgba(255, 255, 255, 0.75);
+  --header-bg-dark: rgba(255, 255, 255, 0.05);
+  --section-bg: #ffffff;
+  --text-light: #0f172a;
+  --text-dark: #f1f5f9;
+  --card-bg: #fefefe;
+  --link-color: #3182ce;
+  --link-hover: #2b6cb0;
+  --header-bg: linear-gradient(135deg, #4299e1, #3182ce);
+  --shadow: rgba(0, 0, 0, 0.3);
+  --highlight-light: #0ea5e9;
+  --highlight-dark: #38bdf8;
+}
+
+body.dark {
+  --bg: #0f172a;
+  --text: #f1f1f1;
+  --section-bg: #0f172a;
+  --card-bg: #0f172a;
+  --link-color: #60a5fa;
+  --link-hover: #93c5fd;
+  --header-bg: var(--header-bg-dark);
+  --highlight: var(--highlight-dark);
+  --shadow: rgba(0, 0, 0, 0.8);
+}
+
+body:not(.dark) {
+  --header-bg: var(--header-bg-light);
+  --highlight: var(--highlight-light);
+}
+
+/* ========== Estilo Base ========== */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  animation: fadeInUp 0.9s ease-out;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ========== Animações ========== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shine {
+  from {
+    transform: rotate(0deg) scale(2);
+  }
+  to {
+    transform: rotate(360deg) scale(1.05);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ========== Partículas de Fundo ========== */
+#particles-js {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: var(--bg);
+  transition: background-color 0.5s ease;
+}
+
+/* ========== Cabeçalho do Perfil Moderno ========== */
+.perfil-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 70px;
+  padding: 40px 20px;
+  background: var(--header-bg);
+  color: white;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  max-width: 960px;
+  margin: 0 auto 40px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  box-shadow: 0 8px 30px var(--shadow);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.perfil-header:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 183, 255, 0.4);
+}
+
+.perfil-header::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(0, 183, 255, 0.08),
+    transparent 75%
+  );
+  animation: rotateLight 6s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.perfil-header h1,
+.perfil-header p {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease, color 0.3s ease;
+  will-change: transform;
+}
+
+.perfil-header:hover h1 {
+  transform: scale(1.1);
+  color: #38bdf8;
+}
+
+.perfil-header:hover p {
+  transform: translateY(-5px);
+  color: #cbd5e1;
+}
+
+@keyframes rotateLight {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Foto do Perfil com efeito moderno ========== */
+.perfil-foto-container {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #ffffff30;
+  box-shadow: 0 6px 20px rgba(0, 183, 255, 0.5);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  background: radial-gradient(circle, #1e293b, #0f172a);
+}
+
+.perfil-foto-container:hover {
+  transform: scale(1.15) rotate(1deg);
+  box-shadow: 0 10px 25px rgba(0, 183, 255, 0.7);
+}
+
+.perfil-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.4s ease;
+}
+
+.perfil-foto-container:hover .perfil-foto {
+  filter: brightness(1.1) contrast(1.05);
+}
+
+.hover-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    145deg,
+    rgba(0, 183, 255, 0.4),
+    rgba(0, 0, 0, 0.6)
+  );
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  user-select: none;
+}
+
+.perfil-foto-container:hover .hover-overlay {
+  opacity: 1;
+}
+
+/* ========== Informações do Perfil ========== */
+.perfil-info {
+  max-width: 520px;
+  text-align: left;
+  z-index: 1;
+}
+
+.perfil-info h1 {
+  font-size: 2.7rem;
+  margin-bottom: 12px;
+  color: #e2e8f0;
+  text-shadow: 0 0 5px rgba(56, 189, 248, 0.3);
+  color: var(--text);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-info p {
+  font-size: 1.25rem;
+  margin: 8px 0;
+  color: var(--text);
+  opacity: 0.85;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* Efeito de digitação */
+#digitando {
+  font-size: 20px;
+  letter-spacing: 1px;
+  border-right: 4px solid var(--highlight);
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(30, end) forwards, cursor 0.7s step-end infinite;
+  color: var(--text);
+  margin-top: 8px;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ========== Botão Modo Escuro ========== */
+.toggle-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background-color: var(--section-bg);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.5s ease;
+}
+
+#toggle-theme {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  filter: brightness(0.7);
+  transition: transform 0.3s ease, filter 0.2s ease;
+}
+
+#toggle-theme:hover {
+  transform: scale(1.2);
+  filter: brightness(1);
+}
+
+body.dark #toggle-theme {
+  filter: brightness(1);
+}
+
+/* Responsivo - Toggle */
+@media (max-width: 600px) {
+  .toggle-container {
+    bottom: 12px;
+    left: 12px;
+    padding: 6px;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  #toggle-theme {
+    padding: 4px;
+  }
+
+  #toggle-theme img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* ========== Seções ========== */
+section {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 30px;
+  background: var(--section-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px var(--shadow);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, background-color 0.5s ease, color 0.5s ease;
+  will-change: transform;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+section:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+section.delay-1 {
+  animation-delay: 0.2s;
+}
+section.delay-2 {
+  animation-delay: 0.4s;
+}
+section.delay-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Brilho de fundo girando */
+section::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.03),
+    transparent 70%
+  );
+  animation: rotateLight 6s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Título */
+section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--text);
+  transition: transform 0.3s ease;
+}
+
+section:hover h2 {
+  transform: scale(1.05);
+}
+
+/* Texto biográfico */
+.bio p,
+.card p,
+.avaliacao p {
+  font-size: 15px;
+  color: #4b5563;
+  transition: transform 0.3s ease;
+}
+
+section:hover .bio p {
+  transform: translateX(5px);
+}
+
+body.dark .bio p,
+body.dark .card p,
+body.dark .avaliacao p {
+  color: #a0aec0;
+}
+
+/* ========== Conhecimentos e Links compartilhados ========== */
+.conhecimentos ul,
+.links ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  padding-top: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.conhecimentos li,
+.links li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Imagens */
+.conhecimentos li img,
+.links li img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: transform 0, 1s ease;
+}
+
+.links li img {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+
+/* Tooltip */
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #eff6ff;
+  color: #000;
+  text-align: center;
+  border-radius: 12px;
+  padding: 5px 10px;
+  bottom: -30px;
+  white-space: nowrap;
+  transition: opacity 0, 1s ease;
+  z-index: 1;
+  font-size: 14px;
+}
+
+.conhecimentos li:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.conhecimentos li:hover img,
+.links li:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.links li {
+  background-color: #eff6ff;
+  border-radius: 12px;
+  transition: background-color 0.5s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.links li:hover {
+  background-color: #dbeafe;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+.links li {
+  position: relative;
+  background-color: #eff6ff;
+  border-radius: 12px;
+  transition: background-color 0.5s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Tooltip dentro de .links li */
+.links li .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: -30px;
+  background-color: #eff6ff;
+  color: #000;
+  text-align: center;
+  border-radius: 12px;
+  padding: 5px 10px;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+  font-size: 14px;
+  z-index: 1;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.links li:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.links li:hover {
+  background-color: #dbeafe;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+/* Tema escuro para tooltips e links */
+body.dark .links li {
+  background-color: #1e293b;
+  color: #f1f1f1;
+}
+
+body.dark .links li:hover {
+  background-color: #334155;
+}
+
+body.dark .links li .tooltip {
+  background-color: #1e293b;
+  color: #f1f1f1;
+}
+
+/* Tema escuro para tooltips e links */
+body.dark .conhecimentos li .tooltip,
+body.dark .links li {
+  background-color: #1e293b;
+  color: #f1f1f1;
+}
+
+body.dark .links li:hover {
+  background-color: #334155;
+}
+
+/* ========== Projetos em destaque ========== */
+.projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--text);
+  text-align: center;
+}
+
+/* Corrige zoom duplicado */
+section.projeto:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== Avaliação ========== */
+.avaliacao #js-skill {
+  background-color: #e5e7eb;
+  height: 20px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+body.dark .avaliacao #js-skill {
+  background-color: #374151;
+}
+
+/* ========== Footer ========== */
+footer {
+  text-align: center;
+  padding: 30px 10px 10px;
+  color: #6b7280;
+  font-size: 0.9rem;
+  transition: color 0.5s ease;
+}
+
+body.dark footer {
+  color: #9ca3af;
+}
+
+/* ========== Menu de navegação ========== */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 24px;
+  border-radius: 30px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .nav-links {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.nav-links li a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: var(--link-hover);
+  transition: width 0.4s ease-in-out;
+}
+
+.nav-links li a:hover {
+  color: var(--link-hover);
+  transform: scale(1.1);
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* ========== Botão Voltar ao Topo ========== */
+#voltarTopo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--bg);
+  color: var(--text);
+  border: none;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#voltarTopo:hover {
+  background-color: var(--link-hover);
+  transform: scale(1.1);
+}
