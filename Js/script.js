@@ -6,8 +6,8 @@ document.getElementById("toggle-theme").addEventListener("click", function () {
 
   const icon = document.getElementById("theme-icon");
   icon.src = isDark
-    ? "/Assets/icons/light_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
-    : "/Assets/icons/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
+    ? "Assets/icons/light_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
+    : "Assets/icons/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
 
   icon.alt = isDark ? "Modo Claro" : "Modo Escuro";
 });
@@ -20,13 +20,13 @@ window.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("dark");
     if (icon) {
       icon.src =
-        "/Assets/icons/light_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
+        "Assets/icons/light_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
       icon.alt = "Modo Claro";
     }
   } else {
     if (icon) {
       icon.src =
-        "/Assets/icons/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
+        "Assets/icons/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
       icon.alt = "Modo Escuro";
     }
   }
